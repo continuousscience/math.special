@@ -14,8 +14,7 @@ acosh = fun Float x -> Float
 atanh = fun Float x -> Float
 exp = fun Float x -> Float
 exp2 = fun Float x -> Float
-exp10 = fun Float x -> Float
-pow1 = fun Float x -> Float
+--exp10 = fun Float x -> Float
 log = fun Float x -> Float
 log10 = fun Float x -> Float
 log2 = fun Float x -> Float
@@ -39,4 +38,13 @@ yn = fun Int n, Float x -> Float
 pow = fun Float x, Float y -> Float
 atan2 = fun Float y, Float x -> Float
 hypot = fun Float x, Float y -> Float
+mod   = fun Int a, Int b -> Int -- always returns in [0,b)
+fmod  = fun Float a, Float b -> Float -- always returns float in [0,b)
+
+ilogb = fun Float x -> Int
+
+fabs  = fun Float x -> Float
+floor = fun Float x -> Int
+ceil  = fun Float x -> Int
+round = fun Float x -> Int
 

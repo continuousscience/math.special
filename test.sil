@@ -1,1 +1,1 @@
-ok = lazy test_prim(math)
+ok = lazy test_prim(special)
