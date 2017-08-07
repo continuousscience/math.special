@@ -2,30 +2,34 @@
 #include <dlfcn.h>
 #include <sil_ext.h>
 
+typedef double (*unop)(double);
+typedef double (*nunop)(int, double);
+typedef double (*binop)(double, double);
+
 #define math_unop(_op) \
-int _op(struct sil_State *S) { \
+int _op(sil_State *S) { \
     double x = sil_todouble(S, 1); \
-    double (*real_op)(double) = dlsym(RTLD_NEXT, #_op); \
+    unop real_op = (unop)dlsym(RTLD_NEXT, #_op); \
     sil_pop(S, 1); \
     sil_pushdouble(S, real_op(x)); \
     return 0; \
 }
 
 #define math_binop(_op) \
-int _op(struct sil_State *S) { \
+int _op(sil_State *S) { \
     double x = sil_todouble(S, 1); \
     double y = sil_todouble(S, 2); \
-    double (*real_op)(double, double) = dlsym(RTLD_NEXT, #_op); \
+    binop real_op = (binop)dlsym(RTLD_NEXT, #_op); \
     sil_pop(S, 2); \
     sil_pushdouble(S, real_op(x, y)); \
     return 0; \
 }
 
 #define math_nunop(_op) \
-int _op(struct sil_State *S) { \
+int _op(sil_State *S) { \
     int   n = sil_tointeger(S, 1); \
     double x = sil_todouble(S, 2); \
-    double (*real_op)(int, double) = dlsym(RTLD_NEXT, #_op); \
+    nunop real_op = (nunop)dlsym(RTLD_NEXT, #_op); \
     sil_pop(S, 2); \
     sil_pushdouble(S, real_op(n, x)); \
     return 0; \
@@ -73,19 +77,20 @@ math_binop(atan2);
 math_binop(hypot);
 
 // rename these functions
-int gamma(struct sil_State *S) {
+int gamma(sil_State *S) {
     double x = sil_todouble(S, 1);
-    double (*real_op)(double, int *) = dlsym(RTLD_NEXT, "tgamma");
+    unop real_op = (unop)dlsym(RTLD_NEXT, "tgamma");
     sil_pop(S, 1);
     sil_pushdouble(S, real_op(x));
     return 0;
 }
 
 // use thread-safe version
-int lgamma(struct sil_State *S) {
+typedef double (*lgamop)(double, int *);
+int lgamma(sil_State *S) {
     int signp;
     double x = sil_todouble(S, 1);
-    double (*real_op)(double, int *) = dlsym(RTLD_NEXT, "lgamma_r");
+    lgamop real_op = (lgamop)dlsym(RTLD_NEXT, "lgamma_r");
     sil_pop(S, 1);
     sil_pushdouble(S, real_op(x, &signp));
     return 0;
