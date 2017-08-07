@@ -1,0 +1,42 @@
+-- Prototypes for included primitive functions
+
+sin = fun Float x -> Float
+cos = fun Float x -> Float
+tan = fun Float x -> Float
+asin = fun Float x -> Float
+acos = fun Float x -> Float
+atan = fun Float x -> Float
+sinh = fun Float x -> Float
+cosh = fun Float x -> Float
+tanh = fun Float x -> Float
+asinh = fun Float x -> Float
+acosh = fun Float x -> Float
+atanh = fun Float x -> Float
+exp = fun Float x -> Float
+exp2 = fun Float x -> Float
+exp10 = fun Float x -> Float
+pow1 = fun Float x -> Float
+log = fun Float x -> Float
+log10 = fun Float x -> Float
+log2 = fun Float x -> Float
+logb = fun Float x -> Float
+sqrt = fun Float x -> Float
+cbrt = fun Float x -> Float
+expm1 = fun Float x -> Float
+log1p = fun Float x -> Float
+erf = fun Float x -> Float
+erfc = fun Float x -> Float
+j0 = fun Float x -> Float
+j1 = fun Float x -> Float
+y0 = fun Float x -> Float
+y1 = fun Float x -> Float
+gamma = fun Float x -> Float
+lgamma = fun Float x -> Float
+
+jn = fun Int n, Float x -> Float
+yn = fun Int n, Float x -> Float
+
+pow = fun Float x, Float y -> Float
+atan2 = fun Float y, Float x -> Float
+hypot = fun Float x, Float y -> Float
+

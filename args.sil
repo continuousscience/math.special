@@ -1,0 +1,41 @@
+-- Number of args for each primitive.
+
+sin = 1
+cos = 1
+tan = 1
+asin = 1
+acos = 1
+atan = 1
+sinh = 1
+cosh = 1
+tanh = 1
+asinh = 1
+acosh = 1
+atanh = 1
+exp = 1
+exp2 = 1
+exp10 = 1
+pow1 = 1
+log = 1
+log10 = 1
+log2 = 1
+logb = 1
+sqrt = 1
+cbrt = 1
+expm1 = 1
+log1p = 1
+erf = 1
+erfc = 1
+j0 = 1
+j1 = 1
+y0 = 1
+y1 = 1
+
+jn = 2
+yn = 2
+pow = 2
+atan2 = 2
+hypot = 2
+
+gamma = 1
+lgamma = 1

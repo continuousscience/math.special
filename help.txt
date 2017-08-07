@@ -1,0 +1,8 @@
+Math library, including:
+  Trigonometric functions: sin, cos, tan, asin, acos, atan, atan2 
+  Exponential functions: exp, exp2, exp10, pow10, log, log10, log2, logb, pow, sqrt, cbrt, hypot, expm1, log1p
+  Hyperbolic functions: sinh, cosh, tanh, asinh, acosh, atanh
+  Special functions: erf, erfc lgamma, gamma
+  Bessel functions of the first kind: j0, j1, jn,
+  Bessel functions of the second kind: y0, y1, yn
+
